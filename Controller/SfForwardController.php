@@ -19,7 +19,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * Class SfForwardController
  */
-class SfForwardController
+class SfForwardController extends Controller
 {
     /**
      * @Route("/sfForwardFront/{paramsList}", name="sf_forward_front")
