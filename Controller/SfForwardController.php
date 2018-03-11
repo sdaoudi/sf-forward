@@ -8,7 +8,7 @@
 
 namespace SfForward\Controller;
 
-use App\Services\ParamsListService;
+use SfForward\Util\ParamsListService;
 use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
