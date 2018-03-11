@@ -7,7 +7,7 @@
         "php": "^5.5.9 || ^7.0"
     },
     "autoload": {
-        "psr-4": { "SfForwardBundle\\": "" }
+        "psr-4": { "SfForward\\": "" }
     },
     "authors": [
         {
