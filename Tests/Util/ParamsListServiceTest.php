@@ -16,6 +16,9 @@ use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
  */
 class ParamsListServiceTest extends TestCase
 {
+    /**
+     * Test getServiceName Method
+     */
     public function testGetServiceName()
     {
         $paramsList = 'service=UM&routeId=_cinema_film_2174';
@@ -24,6 +27,9 @@ class ParamsListServiceTest extends TestCase
         $this->assertEquals('UM', $paramsListService->getServiceName());
     }
 
+    /**
+     * Test getRouteId Method
+     */
     public function testGetRouteId()
     {
         $paramsList = 'service=UM&routeId=_cinema_film_2174';
