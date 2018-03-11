@@ -4,7 +4,8 @@
     "type": "symfony-bundle",
     "license": "MIT",
     "require": {
-        "php": "^5.5.9 || ^7.0"
+        "php": "^5.5.9 || ^7.0",
+        "eightpoints/guzzle-bundle": "~7.0"
     },
     "autoload": {
         "psr-4": { "SfForward\\": "" }
