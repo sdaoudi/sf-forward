@@ -1,6 +1,7 @@
 # Symfony Requests Forward
 
 [![Build Status](https://travis-ci.org/sdaoudi/sf-forward.svg?branch=master)](https://travis-ci.org/sdaoudi/sf-forward)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sdaoudi/sf-forward/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sdaoudi/sf-forward/?b=master)
 
 SfForwardBundle est un bundle qui vous permet de forwarder les requêtes HTTP
 côté serveur, à l'aide de la librarie Guzzle.
