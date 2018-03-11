@@ -8,7 +8,9 @@
 
 namespace SfForward\Util;
 
-
+/**
+ * Class ParamsListService
+ */
 class ParamsListService
 {
     protected $serviceName;
@@ -17,7 +19,7 @@ class ParamsListService
     /**
      * ParamsListService constructor.
      *
-     * @param $paramsList
+     * @param string $paramsList
      */
     public function __construct($paramsList)
     {
