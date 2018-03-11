@@ -9,7 +9,7 @@
 namespace SfForward\Tests\Util;
 
 use SfForward\Util\ParamsListService;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ParamsListServiceTest
