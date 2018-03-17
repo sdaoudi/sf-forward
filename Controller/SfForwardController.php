@@ -8,8 +8,10 @@
 
 namespace SfForward\Controller;
 
-use SfForward\Util\ParamsListService;
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
+use SfForward\Util\ParamsListService;
+use SfForward\Util\RequestMethodMapping;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -33,14 +35,19 @@ class SfForwardController extends Controller
     {
         $params = new ParamsListService($paramsList);
         $guzzleServiceName = sprintf('eight_points_guzzle.client.%s', $params->getServiceName());
+        $method = strtolower($request->getMethod());
 
-        if ($this->has($guzzleServiceName)) {
+        if (RequestMethodMapping::isValidMethod($method) && $this->has($guzzleServiceName)) {
             /** @var Client $client */
             $client = $this->get($guzzleServiceName);
-            $guzzleResponse = $client->get(
+
+
+            /** @var ResponseInterface $guzzleResponse */
+            $guzzleResponse = $client->{$method}(
                 $params->getRouteId(),
-                ['query' => $request->getQueryString()]
+                ['query' => $request->{RequestMethodMapping::$methodsMapping[$method]}->all()]
             );
+
             $response = new Response($guzzleResponse->getBody());
             $response->setStatusCode($guzzleResponse->getStatusCode());
             $response->setProtocolVersion($guzzleResponse->getProtocolVersion());
