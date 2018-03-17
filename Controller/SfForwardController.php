@@ -45,7 +45,7 @@ class SfForwardController extends Controller
             /** @var ResponseInterface $guzzleResponse */
             $guzzleResponse = $client->{$method}(
                 $params->getRouteId(),
-                ['query' => $request->{RequestMethodMapping::$methodsMapping[$method]}->all()]
+                [ 'query' => $request->{RequestMethodMapping::$methodsMapping[$method]}->all() ]
             );
 
             $response = new Response($guzzleResponse->getBody());
