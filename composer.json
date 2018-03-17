@@ -7,6 +7,10 @@
         "php": "^5.6 || ^7.0",
         "eightpoints/guzzle-bundle": "~6.0 || ~7.0"
     },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^2.8 || ^3.4 || ^4.0",
+        "phpunit/phpunit": "^5.7 || ^6.5"
+    },
     "autoload": {
         "psr-4": { "SfForward\\": "" }
     },
@@ -15,9 +19,5 @@
             "name": "DAOUDI Soufian",
             "email": "soufian.daoudi2@gmail.com"
         }
-    ],
-    "require-dev": {
-        "symfony/phpunit-bridge": "^3.4 || ^4.0",
-        "phpunit/phpunit": "^5.7 || ^6.5"
-    }
+    ]
 }
