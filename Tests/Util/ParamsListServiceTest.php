@@ -24,7 +24,7 @@ class ParamsListServiceTest extends TestCase
         $paramsList = 'service=UM&routeId=_cinema_film_2174';
         $paramsListService = new ParamsListService($paramsList);
 
-        $this->assertEquals('UM', $paramsListService->getServiceName());
+        $this->assertEquals('u_m', $paramsListService->getServiceName());
     }
 
     /**
