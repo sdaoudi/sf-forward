@@ -24,7 +24,6 @@ SfForward\SfForwardBundle::class => ['all' => true]
 ``` yaml
 sf_forward:
     resource: '@SfForwardBundle/Controller/SfForwardController.php'
-    prefix: /
     type: annotation
 ```
 
@@ -36,8 +35,13 @@ Pour la configuration Guzzle, voir la documentation du projet
 ``` link
 http://symfony.local/sfForwardFront/service=UM&routeId=_cinema_film_2174
 ```
- - service: c'est la clé du client configuré avec Guzzle.
- - C'est la route qu'on souhaite cibler, mais il suffit de remplacer 
+ - service: C'est la clé du client configuré avec Guzzle.
+ - routeId: C'est la route qu'on souhaite cibler, mais il suffit de remplacer 
  les slash (/) de la route avec des underscores (_)
- 
+
+Afin de respecter [les conventions de nommages des services Symfony][2]
+le service passé en paramètre serait transformé en [Snake Case][3].
+
 [1]: https://github.com/8p/EightPointsGuzzleBundle
+[2]: https://symfony.com/doc/current/contributing/code/standards.html#service-naming-conventions
+[3]: https://fr.wikipedia.org/wiki/Snake_case

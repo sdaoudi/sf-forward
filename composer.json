@@ -5,7 +5,8 @@
     "license": "MIT",
     "require": {
         "php": "^5.6 || ^7.0",
-        "eightpoints/guzzle-bundle": "~6.0 || ~7.0"
+        "eightpoints/guzzle-bundle": "~6.0 || ~7.0",
+        "nayjest/str-case-converter": "^1.0"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^2.8 || ^3.4 || ^4.0",

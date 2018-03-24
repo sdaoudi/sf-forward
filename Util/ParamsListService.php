@@ -8,6 +8,8 @@
 
 namespace SfForward\Util;
 
+use Nayjest\StrCaseConverter\Str;
+
 /**
  * Class ParamsListService
  */
@@ -34,7 +36,7 @@ class ParamsListService
      */
     public function getServiceName()
     {
-        return $this->serviceName;
+        return Str::toSnakeCase($this->serviceName);
     }
 
     /**
