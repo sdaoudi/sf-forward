@@ -14,7 +14,7 @@ class PublicDirectory
 	/**
 	 * @param $projectDir
 	 *
-	 * @return bool|string
+	 * @return string
 	 */
 	public static function getPublicDir($projectDir)
 	{
@@ -29,6 +29,6 @@ class PublicDirectory
 			return $publicDir;
 		}
 
-		return false;
+		return $projectDir;
 	}
 }
