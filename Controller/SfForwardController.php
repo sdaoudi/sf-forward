@@ -42,19 +42,19 @@ class SfForwardController extends Controller
             /** @var Client $client */
             $client = $this->get($guzzleServiceName);
 
-	        $contentType = RequestMethodMapping::$contentTypes[$method];
-	        $methodName  = RequestMethodMapping::$methodsMapping[$method];
+            $contentType = RequestMethodMapping::$contentTypes[$method];
+            $methodName  = RequestMethodMapping::$methodsMapping[$method];
 
             /** @var ResponseInterface $guzzleResponse */
             $guzzleResponse = $client->{$method}(
                 $params->getRouteId(),
                 [
-	                $contentType => $request->{$methodName}->all()
+                    $contentType => $request->{$methodName}->all()
                 ]
             );
 
-			return (
-			    new ResponseManager($guzzleResponse, $this->container->getParameter('kernel.project_dir'))
+            return (
+                new ResponseManager($guzzleResponse, $this->container->getParameter('kernel.project_dir'))
             )->getResponse();
         }
 

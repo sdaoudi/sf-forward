@@ -11,24 +11,24 @@ namespace SfForward\Util;
 
 class PublicDirectory
 {
-	/**
-	 * @param $projectDir
-	 *
-	 * @return string
-	 */
-	public static function getPublicDir($projectDir)
-	{
-		$webDir    = "$projectDir/web/";
-		$publicDir = "$projectDir/public/";
+    /**
+     * @param $projectDir
+     *
+     * @return string
+     */
+    public static function getPublicDir($projectDir)
+    {
+        $webDir    = "$projectDir/web/";
+        $publicDir = "$projectDir/public/";
 
-		if (file_exists($webDir)) {
-			return $webDir;
-		}
+        if (file_exists($webDir)) {
+            return $webDir;
+        }
 
-		if (file_exists($publicDir)) {
-			return $publicDir;
-		}
+        if (file_exists($publicDir)) {
+            return $publicDir;
+        }
 
-		return $projectDir;
-	}
+        return $projectDir;
+    }
 }
