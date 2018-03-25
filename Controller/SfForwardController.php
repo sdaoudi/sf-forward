@@ -10,6 +10,7 @@ namespace SfForward\Controller;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
+use SfForward\Manager\ResponseManager;
 use SfForward\Util\ParamsListService;
 use SfForward\Util\RequestMethodMapping;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,21 +42,22 @@ class SfForwardController extends Controller
             /** @var Client $client */
             $client = $this->get($guzzleServiceName);
 
+	        $contentType = RequestMethodMapping::$contentTypes[$method];
+	        $methodName  = RequestMethodMapping::$methodsMapping[$method];
 
             /** @var ResponseInterface $guzzleResponse */
             $guzzleResponse = $client->{$method}(
                 $params->getRouteId(),
-                [ RequestMethodMapping::$contentTypes[$method] => $request->{RequestMethodMapping::$methodsMapping[$method]}->all() ]
+                [
+	                $contentType => $request->{$methodName}->all()
+                ]
             );
 
-            $response = new Response($guzzleResponse->getBody());
-            $response->setStatusCode($guzzleResponse->getStatusCode());
-            $response->setProtocolVersion($guzzleResponse->getProtocolVersion());
-
-            return $response;
+			return (
+			    new ResponseManager($guzzleResponse, $this->container->getParameter('kernel.project_dir'))
+            )->getResponse();
         }
 
         throw new NotFoundHttpException(sprintf('Service "%s" not found', $params->getServiceName()));
     }
-
 }
