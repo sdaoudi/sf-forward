@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sdaoudi
- * Date: 02/04/18
- * Time: 22:49
- */
 
 namespace SfForward\Tests\Util;
 

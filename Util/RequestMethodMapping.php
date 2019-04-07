@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: douadis
- * Date: 13/03/2018
- * Time: 10:37
- */
 namespace SfForward\Util;
 
 class RequestMethodMapping
