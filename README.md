@@ -5,46 +5,50 @@
 [![Latest Stable Version](https://poser.pugx.org/sdaoudi/sf-forward/v/stable)](https://packagist.org/packages/sdaoudi/sf-forward)
 [![Total Downloads](https://poser.pugx.org/sdaoudi/sf-forward/downloads)](https://packagist.org/packages/sdaoudi/sf-forward)
 
-SfForwardBundle est un bundle qui vous permet de forwarder les requêtes HTTP
-côté serveur, à l'aide de la librairie Guzzle.
+SfForwardBundle is a bundle that allows you to forward server-side HTTP requests 
+using the Guzzle library.
 
 ## INSTALLATION
-Pour installer ce bundle, lancez la commande suivante:
+
+To install this bundle, run the following command:
+
 ``` bash
-composer require sdaoudi/sf-forward
+$ composer require sdaoudi/sf-forward
 ```
 
 ## USAGE
-##### Charger le bundle dans bundles:
+
+##### Enable bundle:
+
 ``` php
 SfForward\SfForwardBundle::class => ['all' => true]
 ```
 
-##### Ajouter la route SfForward à votre routing global:
+##### Add the SfForward route to your routing.yml file:
+
 ``` yaml
 sf_forward:
     resource: '@SfForwardBundle/Controller/SfForwardController.php'
     type: annotation
 ```
 
-##### Configuration Guzzle:
-Pour la configuration Guzzle, voir la documentation du projet 
-[8p/EightPointsGuzzleBundle][1]
+##### Guzzle configuration:
 
-![alt text](http://blog.sdaoudi.ovh/wp-content/uploads/github/guzzle_base_uri.png "Examples of Guzzle base_uri")
+For the Guzzle configuration, see the [8p/EightPointsGuzzleBundle][1] project
+documentation.
 
-##### Exemple d'utilisation:
+##### Examples:
 
 ``` link
 http://symfony.local/sfForwardFront/service=UM&routeId=_cinema_film_2174
 ```
 
- - service: C'est la clé du client configuré avec Guzzle.
- - routeId: C'est la route qu'on souhaite cibler, mais il suffit de remplacer 
- les slash (/) de la route avec des underscores (_)
+- service: is the key of the client configured with Guzzle.
+- routeId: is the route you want to target, but just replace the slash (/) 
+of the route with underscores (_).
 
-Afin de respecter [les conventions de nommages des services Symfony][2]
-le service passé en paramètre serait transformé en [Snake Case][3].
+In order to respect [Symfony naming conventions][2], the service passed in 
+parameter would be transformed into [Snake Case][3].
 
 [1]: https://github.com/8p/EightPointsGuzzleBundle
 [2]: https://symfony.com/doc/current/contributing/code/standards.html#service-naming-conventions
