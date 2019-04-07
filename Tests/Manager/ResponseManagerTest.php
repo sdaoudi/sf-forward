@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ResponseManagerTest extends TestCase
 {
     protected $projectDir;
+
     protected function setUp()
     {
         $this->projectDir = __DIR__.'/../../var/cache';
