@@ -35,7 +35,7 @@ class ResponseManager
      * @param ResponseInterface $response
      * @param string            $projectDir
      */
-    public function __construct(ResponseInterface $response, $projectDir = __DIR__)
+    public function __construct(ResponseInterface $response, $projectDir)
     {
         $this->response = $response;
         $this->projectDir = $projectDir;

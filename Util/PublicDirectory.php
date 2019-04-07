@@ -13,21 +13,26 @@ namespace SfForward\Util;
 
 class PublicDirectory
 {
+    const WEB_FOLDER_NAME = 'web';
+    const PUBLIC_FOLDER_NAME = 'public';
+
     /**
-     * @param $projectDir
+     * @param string $projectDir
      *
      * @return string
      */
     public static function getPublicDir($projectDir)
     {
-        if (file_exists($webDir = "$projectDir/web/")) {
+        $projectDir = rtrim($projectDir, '/');
+
+        if (file_exists($webDir = "$projectDir/".self::WEB_FOLDER_NAME.'/')) {
             return $webDir;
         }
 
-        if (file_exists($publicDir = "$projectDir/public/")) {
+        if (file_exists($publicDir = "$projectDir/".self::PUBLIC_FOLDER_NAME.'/')) {
             return $publicDir;
         }
 
-        return $projectDir;
+        return $projectDir.'/';
     }
 }
