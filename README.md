@@ -21,7 +21,7 @@ $ composer require sdaoudi/sf-forward
 ##### Enable bundle:
 
 ``` php
-SfForward\SfForwardBundle::class => ['all' => true]
+SfForward\SfForwardBundle::class => ['all' => true],
 ```
 
 ##### Add the SfForward route to your routing.yml file:
@@ -35,17 +35,40 @@ sf_forward:
 ##### Guzzle configuration:
 
 For the Guzzle configuration, see the [8p/EightPointsGuzzleBundle][1] project
-documentation.
+documentation:
+
+``` yaml
+# EightPoints GuzzleBundle
+# A full list of configuration options can be found here:
+# https://github.com/8p/EightPointsGuzzleBundle/blob/master/src/Resources/doc/configuration-reference.md
+eight_points_guzzle:
+    clients:
+        my_client:
+            # Write here the host where to do requests
+            base_url: "http://localhost:8000"
+
+            # Request options: http://docs.guzzlephp.org/en/stable/request-options.html
+            options:
+                # timeout in seconds
+                timeout: 30
+
+                # set to false to disable throwing exceptions on an HTTP protocol errors (4xx and 5xx responses)
+                http_errors: true
+
+                # each key is the name of a header, and each value is a string or array of strings representing the
+                # header field values.
+                headers:
+                    User-Agent: "EightPointsGuzzleBundle/v7"
+```
 
 ##### Examples:
 
 ``` link
-http://symfony.local/sfForwardFront/service=UM&routeId=_cinema_film_2174
+http://symfony.local//sfForwardFront/service=MyClient&routeId=_my_route_example_2174?key=value
 ```
 
 - service: is the key of the client configured with Guzzle.
-- routeId: is the route you want to target, but just replace the slash (/) 
-of the route with underscores (_).
+- routeId: is the target route, just replace the slashes (/) by underscores (_).
 
 In order to respect [Symfony naming conventions][2], the service passed in 
 parameter would be transformed into [Snake Case][3].
