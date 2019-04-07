@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the SF Forward Bundle.
+ *
+ * (c) DAOUDI Soufian <soufian.daoudi2@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace SfForward\Controller;
 
 use GuzzleHttp\Client;
@@ -14,7 +23,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class SfForwardController
+ * Class SfForwardController.
  */
 class SfForwardController extends Controller
 {
@@ -37,13 +46,13 @@ class SfForwardController extends Controller
             $client = $this->get($guzzleServiceName);
 
             $contentType = RequestMethodMapping::$contentTypes[$method];
-            $methodName  = RequestMethodMapping::$methodsMapping[$method];
+            $methodName = RequestMethodMapping::$methodsMapping[$method];
 
             /** @var ResponseInterface $guzzleResponse */
             $guzzleResponse = $client->{$method}(
                 $params->getRouteId(),
                 [
-                    $contentType => $request->{$methodName}->all()
+                    $contentType => $request->{$methodName}->all(),
                 ]
             );
 

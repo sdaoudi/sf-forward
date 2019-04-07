@@ -1,7 +1,15 @@
 <?php
 
-namespace SfForward\Manager;
+/*
+ * This file is part of the SF Forward Bundle.
+ *
+ * (c) DAOUDI Soufian <soufian.daoudi2@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
+namespace SfForward\Manager;
 
 use Psr\Http\Message\ResponseInterface;
 use SfForward\Util\PublicDirectory;
@@ -25,11 +33,11 @@ class ResponseManager
      * ResponseManager constructor.
      *
      * @param ResponseInterface $response
-     * @param string $projectDir
+     * @param string            $projectDir
      */
     public function __construct(ResponseInterface $response, $projectDir = __DIR__)
     {
-        $this->response   = $response;
+        $this->response = $response;
         $this->projectDir = $projectDir;
     }
 

@@ -1,11 +1,20 @@
 <?php
 
+/*
+ * This file is part of the SF Forward Bundle.
+ *
+ * (c) DAOUDI Soufian <soufian.daoudi2@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace SfForward\Util;
 
 use Nayjest\StrCaseConverter\Str;
 
 /**
- * Class ParamsListService
+ * Class ParamsListService.
  */
 class ParamsListService
 {
@@ -20,9 +29,9 @@ class ParamsListService
     public function __construct($paramsList)
     {
         list($this->serviceName, $this->routeId) = explode('&', $paramsList);
-        $this->serviceName  = str_replace('service=', '', $this->serviceName);
-        $this->routeId      = str_replace('routeId=', '', $this->routeId);
-        $this->routeId      = str_replace('_', '/', $this->routeId);
+        $this->serviceName = str_replace('service=', '', $this->serviceName);
+        $this->routeId = str_replace('routeId=', '', $this->routeId);
+        $this->routeId = str_replace('_', '/', $this->routeId);
     }
 
     /**
@@ -40,8 +49,4 @@ class ParamsListService
     {
         return $this->routeId;
     }
-
-
-
-
 }

@@ -1,17 +1,26 @@
 <?php
 
+/*
+ * This file is part of the SF Forward Bundle.
+ *
+ * (c) DAOUDI Soufian <soufian.daoudi2@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace SfForward\Tests\Util;
 
 use SfForward\Util\ParamsListService;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class ParamsListServiceTest
+ * Class ParamsListServiceTest.
  */
 class ParamsListServiceTest extends TestCase
 {
     /**
-     * Test getServiceName Method
+     * Test getServiceName Method.
      */
     public function testGetServiceName()
     {
@@ -22,7 +31,7 @@ class ParamsListServiceTest extends TestCase
     }
 
     /**
-     * Test getRouteId Method
+     * Test getRouteId Method.
      */
     public function testGetRouteId()
     {
