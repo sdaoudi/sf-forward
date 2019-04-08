@@ -24,7 +24,7 @@ class ResponseManagerTest extends TestCase
 
     protected function setUp()
     {
-        $this->projectDir = __DIR__.'/../../var/cache';
+        $this->projectDir = __DIR__.'/../..';
     }
 
     public function testGetResponseSuccess()
@@ -47,11 +47,14 @@ class ResponseManagerTest extends TestCase
 
     public function testGetBinaryFileResponse()
     {
-        $response = $this->getMockedResponse('test content', Response::HTTP_OK, 'content-disposition');
+        $response = $this->getMockedResponse('test content', Response::HTTP_OK, 'content-disposition', 1);
         $responseManager = new ResponseManager($response, $this->projectDir);
+        $responseReturn = $responseManager->getResponse();
+        unlink($responseReturn->getFile()->getPathname());
 
-        $this->assertInstanceOf(BinaryFileResponse::class, $responseManager->getResponse());
-        $this->assertSame(Response::HTTP_OK, $responseManager->getResponse()->getStatusCode());
+        $this->assertInstanceOf(BinaryFileResponse::class, $responseReturn);
+        $this->assertSame(Response::HTTP_OK, $responseReturn->getStatusCode());
+
     }
 
     /**
@@ -61,7 +64,7 @@ class ResponseManagerTest extends TestCase
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getMockedResponse($body = '', $statusCode = Response::HTTP_OK, $contentDisposition = null)
+    protected function getMockedResponse($body = '', $statusCode = Response::HTTP_OK, $contentDisposition = null, $exactly = 2)
     {
         $stream = $this->createMock(StreamInterface::class);
         $stream->method('getContents')
@@ -69,15 +72,15 @@ class ResponseManagerTest extends TestCase
 
         $response = $this->createMock(ResponseInterface::class);
 
-        $response->expects($this->exactly(2))
+        $response->expects($this->exactly($exactly))
             ->method('getBody')
             ->willReturn($stream);
 
-        $response->expects($this->exactly(2))
+        $response->expects($this->exactly($exactly))
             ->method('getStatusCode')
             ->willReturn($statusCode);
 
-        $response->expects($this->exactly(2))
+        $response->expects($this->exactly($exactly))
             ->method('hasHeader')
             ->with('Content-Disposition')
             ->willReturn($contentDisposition);
