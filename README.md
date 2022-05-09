@@ -76,3 +76,4 @@ parameter would be transformed into [Snake Case][3].
 [1]: https://github.com/8p/EightPointsGuzzleBundle
 [2]: https://symfony.com/doc/current/contributing/code/standards.html#service-naming-conventions
 [3]: https://fr.wikipedia.org/wiki/Snake_case
+
